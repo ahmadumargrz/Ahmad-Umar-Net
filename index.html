@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetWatch - Network Monitor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">📡 NetWatch</div>
+    <span class="status"><span class="dot"></span> Monitoring</span>
+</header>
+<main class="container">
+    <section class="welcome">
+        <h1>Network Monitoring Dashboard</h1>
+        <p>Monitor, compare and report network performance.</p>
+    </section>
+    <section class="grid">
+        <div class="card"><h3>Connection Type</h3><h2 id="connection">Checking...</h2><p id="networkDetails">Browser network information</p></div>
+        <div class="card"><h3>Internet Speed</h3><h2 id="speed">-- Mbps</h2><p>Last download test</p></div>
+        <div class="card"><h3>Latency / Ping</h3><h2 id="ping">-- ms</h2><p>Network response time</p></div>
+        <div class="card"><h3>Connection Quality</h3><h2 id="quality">Unknown</h2><p>Based on measured speed</p></div>
+    </section>
+    <section class="panel">
+        <h2>📶 Network Signal Monitoring</h2>
+        <p id="signalInfo">Actual cellular signal strength is not exposed by most browsers.</p>
+        <div class="signal-bar"><div id="signalBar"></div></div>
+        <p id="signalText">Signal strength: Unavailable</p>
+        <button onclick="checkConnection()">Refresh Connection</button>
+    </section>
+    <section class="panel">
+        <h2>🚀 Internet Speed Test</h2>
+        <p>Measure your current internet download performance.</p>
+        <div class="speed-result">
+            <div><h1 id="testSpeed">0.00</h1><p>Mbps Download</p></div>
+            <div><h1 id="testPing">--</h1><p>Latency (ms)</p></div>
+        </div>
+        <button id="testButton" onclick="startSpeedTest()">Start Speed Test</button>
+        <p id="testStatus">Ready to test your connection.</p>
+    </section>
+    <section class="panel">
+        <h2>📊 Network Comparison</h2><p>Enter measured speeds to compare operators.</p>
+        <div class="form-grid">
+            <input id="location" placeholder="Enter location">
+            <select id="operator"><option value="MTN">MTN</option><option value="Airtel">Airtel</option><option value="Glo">Glo</option><option value="9mobile">9mobile</option></select>
+            <input id="compareSpeed" type="number" min="0" placeholder="Download speed (Mbps)">
+            <input id="comparePing" type="number" min="0" placeholder="Ping (ms)">
+            <button onclick="addComparison()">Add Comparison</button>
+        </div>
+        <div id="comparisonList"></div>
+    </section>
+    <section class="panel">
+        <h2>📍 Coverage Monitoring</h2><p>Community-submitted network coverage information.</p>
+        <div class="form-grid">
+            <input id="coverageLocation" placeholder="Area / Community">
+            <select id="coverageOperator"><option>MTN</option><option>Airtel</option><option>Glo</option><option>9mobile</option></select>
+            <select id="coverageQuality"><option value="Excellent">Excellent</option><option value="Good">Good</option><option value="Fair">Fair</option><option value="Poor">Poor</option><option value="No Service">No Service</option></select>
+            <button onclick="addCoverage()">Submit Coverage Report</button>
+        </div>
+        <div id="coverageList"></div>
+    </section>
+    <section class="panel">
+        <h2>⚠️ Poor Network Reports</h2>
+        <div class="form-grid">
+            <input id="poorLocation" placeholder="Location">
+            <select id="poorOperator"><option>MTN</option><option>Airtel</option><option>Glo</option><option>9mobile</option></select>
+            <select id="problem"><option>Slow Internet</option><option>No Network</option><option>Weak Signal</option><option>Frequent Disconnection</option><option>Calls Not Connecting</option></select>
+            <textarea id="description" placeholder="Describe the network problem"></textarea>
+            <button onclick="submitPoorReport()">Submit Report</button>
+        </div>
+        <div id="poorList"></div>
+    </section>
+    <section class="panel">
+        <h2>🌍 Community Reports</h2><p>View network complaints submitted by community members.</p>
+        <div id="communityList"></div>
+    </section>
+    <section class="panel">
+        <h2>🕒 Network Speed History</h2>
+        <button onclick="clearHistory()" class="danger">Clear History</button>
+        <div id="historyList"></div>
+    </section>
+</main>
+<footer><p>NetWatch © 2026 | Network Monitoring Platform</p><p>Community data is not independently verified.</p></footer>
+<script src="script.js"></script>
+</body>
+</html>

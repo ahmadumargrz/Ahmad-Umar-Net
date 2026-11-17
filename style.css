@@ -1,0 +1,28 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#050505;color:white}
+.topbar{background:#111;padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333}
+.brand{font-size:24px;font-weight:bold}.status{color:#00d68f;font-size:13px}
+.dot{display:inline-block;width:9px;height:9px;background:#00d68f;border-radius:50%;margin-right:6px}
+.container{width:90%;max-width:1200px;margin:30px auto}
+.welcome{margin-bottom:30px}.welcome h1{font-size:30px;margin-bottom:10px}
+.welcome p,.panel p{color:#aaa;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:25px}
+.card,.panel{background:#141414;padding:22px;border:1px solid #333;border-radius:12px}
+.card h3{color:#aaa;font-size:14px;margin-bottom:15px}.card h2{font-size:25px;margin-bottom:10px}
+.card p{color:#888;font-size:12px}.panel{margin-bottom:25px}.panel h2{margin-bottom:15px}
+button{background:white;color:black;border:none;padding:12px 18px;margin-top:15px;border-radius:7px;font-weight:bold;cursor:pointer}
+button:hover{background:#ccc}button:disabled{opacity:.6;cursor:wait}
+.danger{background:#b83232;color:white}
+.signal-bar{height:12px;background:#333;border-radius:10px;margin:20px 0 10px;overflow:hidden}
+#signalBar{width:0%;height:100%;background:#00d68f;transition:width .5s}
+.speed-result{display:flex;gap:70px;margin:25px 0}.speed-result h1{font-size:40px}.speed-result p{color:#aaa}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+input,select,textarea{width:100%;padding:13px;background:#222;color:white;border:1px solid #444;border-radius:7px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:white}
+textarea{min-height:90px;resize:vertical;grid-column:span 2}
+.form-grid button{grid-column:span 2}
+.report-item{background:#202020;padding:15px;margin-top:12px;border-radius:8px;border-left:3px solid white;overflow-wrap:anywhere}
+.report-item p{margin-top:6px}.empty{color:#888;padding:18px 0}
+footer{background:#111;text-align:center;padding:25px;color:#888;line-height:1.8}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.container{width:94%}.grid{grid-template-columns:1fr 1fr;gap:8px}.card{padding:15px 10px}.card h2{font-size:20px}.form-grid{grid-template-columns:1fr}.form-grid button,textarea{grid-column:span 1}.speed-result{gap:35px}.speed-result h1{font-size:30px}.welcome h1{font-size:24px}}
